@@ -10,7 +10,7 @@ import org.hibernate.envers.Audited;
 
 @Embeddable
 @Audited
-// @AuditTable(value = "custom_field_history")
+@AuditTable(value = "pvs_fred_custom_fields_history")
 public class MaybeMoneyAmount {
     
     @Column(name = "amount_raw")

@@ -13,12 +13,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>3.5.0-Final</version>
+            <version>5.4.10.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-envers</artifactId>
-            <version>3.5.0-Final</version>
+            <version>5.4.10.Final</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -26,23 +26,9 @@
             <version>42.2.16</version>
         </dependency>
     </dependencies>
-
+    
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>hibernate3-maven-plugin</artifactId>
-                <version>3.0</version>
-                <configuration>
-                    <hibernatetool>
-                        <classpath>
-                            <path location="${project.build.directory}/classes" />
-                        </classpath>
-                        <annotationconfiguration propertyfile="src/main/resources/hibernate.cfg.xml" />
-                        <hbm2ddl update="false" create="false" drop="false" export="false" outputfilename="schemaDiff.ddl" format="true" />
-                    </hibernatetool>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 </project>

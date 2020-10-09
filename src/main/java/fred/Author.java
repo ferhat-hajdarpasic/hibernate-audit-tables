@@ -25,11 +25,11 @@ public class Author {
 	private String name;
 
 
-    // @ElementCollection(fetch=FetchType.EAGER)
-    // @CollectionTable(name="pvs_fred_custom_fields")
+    @ElementCollection(fetch=FetchType.EAGER)
+    @CollectionTable(name="pvs_fred_custom_fields")
     // // @MapKeyColumn(name = "ID")
     // // @Column(name = "fred_fields")
-    // private Map<String, MaybeMoneyAmount> customFields = new HashMap();
+    private Map<String, MaybeMoneyAmount> customFields = new HashMap();
     public Integer getId() {
 		return id;
 	}
@@ -46,11 +46,11 @@ public class Author {
 		this.name = name;
 	}
 
-    // public Map<String, MaybeMoneyAmount> getCustomFields() {
-    //     return customFields;
-    // }
+    public Map<String, MaybeMoneyAmount> getCustomFields() {
+        return customFields;
+    }
 
-    // public void setCustomFields(Map<String, MaybeMoneyAmount> customFields) {
-    //     this.customFields = customFields;
-    // }
+    public void setCustomFields(Map<String, MaybeMoneyAmount> customFields) {
+        this.customFields = customFields;
+    }
 }
