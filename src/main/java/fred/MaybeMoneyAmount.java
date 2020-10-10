@@ -5,17 +5,10 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
-
 @Embeddable
-@Audited
-@AuditTable(value = "pvs_fred_custom_fields_history")
 public class MaybeMoneyAmount {
     
-    @Column(name = "amount_raw")
-    private final String amountRaw;
-    @Column(name = "amount_amt")
+    private String amountRaw;
     private BigDecimal amountAmt;
     
     public MaybeMoneyAmount(String amountRaw) {
@@ -28,10 +21,16 @@ public class MaybeMoneyAmount {
         this.amountRaw = amountAmt.toPlainString();
     }
 
+    @Column(name = "amount_raw", nullable = false)
     public String getAmountRaw() {
         return amountRaw;
     }
 
+    public void setAmountRaw(String amountRaw) {
+        this.amountRaw = amountRaw;
+    }
+
+    @Column(name = "amount_amt")
     public BigDecimal getAmountAmt() {
         return amountAmt;
     }

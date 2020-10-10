@@ -19,8 +19,7 @@ public class Generate {
                         .applySetting("hibernate.dialect", PostgreSQLDialect.class.getName())
                         .build());
     
-        metadata.addAnnotatedClass(Author.class);
-        metadata.addAnnotatedClass(Book.class);
+        metadata.addAnnotatedClass(PvsContribution.class);
         metadata.addAnnotatedClass(MaybeMoneyAmount.class);
     
         MetadataImplementor metadataImplementor = (MetadataImplementor) metadata.buildMetadata();
