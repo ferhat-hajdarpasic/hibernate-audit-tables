@@ -20,7 +20,7 @@ public class Generate {
                         .build());
     
         metadata.addAnnotatedClass(PvsContribution.class);
-        metadata.addAnnotatedClass(MaybeMoneyAmount.class);
+        metadata.addAnnotatedClass(MaybeAmount.class);
     
         MetadataImplementor metadataImplementor = (MetadataImplementor) metadata.buildMetadata();
         SchemaExport export = new SchemaExport();

@@ -27,17 +27,17 @@ public class PvsContribution {
     private Long pvsContributionId;
     private Date whenCreated;
 
-    private Map<String, MaybeMoneyAmount> customFields = new HashMap();
+    private Map<String, MaybeAmount> customFields = new HashMap();
 
     @ElementCollection(fetch=FetchType.EAGER)
     @CollectionTable(name="PVS_CONTRIBUTION_CUSTOM_FIELDS", joinColumns = {@JoinColumn(name = "entity_ref_id", referencedColumnName = "PVS_CONTRIBUTION_ID")})
     @AuditJoinTable(name="PVS_CONTRIBUTION_CUSTOM_FIELDS_HISTORY")
     @MapKeyColumn(name = "ID")
-    public Map<String, MaybeMoneyAmount> getCustomFields() {
+    public Map<String, MaybeAmount> getCustomFields() {
         return customFields;
     }
 
-    public void setCustomFields(Map<String, MaybeMoneyAmount> customFields) {
+    public void setCustomFields(Map<String, MaybeAmount> customFields) {
         this.customFields = customFields;
     }
 

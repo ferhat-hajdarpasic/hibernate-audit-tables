@@ -6,16 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class MaybeMoneyAmount {
+public class MaybeAmount {
     
     private String amountRaw;
     private BigDecimal amountAmt;
     
-    public MaybeMoneyAmount(String amountRaw) {
+    public MaybeAmount(String amountRaw) {
         this.amountRaw = amountRaw;
     }
 
-    public MaybeMoneyAmount(BigDecimal amountAmt) {
+    public MaybeAmount(BigDecimal amountAmt) {
         super();
         this.amountAmt = amountAmt; 
         this.amountRaw = amountAmt.toPlainString();
