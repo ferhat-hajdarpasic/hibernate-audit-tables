@@ -60,6 +60,21 @@ public class TestJpa {
             entityManager = emf.createEntityManager();
             txn = entityManager.getTransaction();
             txn.begin();
+
+            List<PvsContribution> entityAList = entityManager.createQuery(
+                "SELECT sum(CAST(pc.superGuaranteeAmt AS big_decimal) ), cf.fieldIdentifier, sum(cf.amountAmt) " +
+                "from PvsContribution pc " +
+                "inner join pc.customFields cf " +
+                "left join pc.pvsInputSource pds  " +
+    		    "left join pc.pvsMember pm " + 
+    		    "left join pds.pvsInputSourceFiles pdsf " + 
+                "join  pdsf.pvsDataFile pdf " + 
+    		    "where pdf.pvsDataFileId = 671878 " + 
+                "group by cf.fieldIdentifier " + 
+                "order by cf.fieldIdentifier "
+
+            ).getResultList();
+
             List<PvsContribution> entityAList = entityManager.createQuery("Select c from PvsContribution c").getResultList();
             // entityAList.forEach(System.out::println);
 
